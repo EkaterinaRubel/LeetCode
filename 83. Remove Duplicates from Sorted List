@@ -1,0 +1,13 @@
+class Solution:
+    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        new_head = cur = ListNode(None)  #просто узел входа
+        while head:
+            if head.val == cur.val:  #ListNode -> int
+                head = head.next  #ListNode
+                continue
+            else:
+                cur.next = ListNode(head.val)  #это классы node, head не тащит за собой хвост 
+                cur = cur.next
+                head = head.next
+
+        return new_head.next
